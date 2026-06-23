@@ -52,12 +52,12 @@
         .header h1 {
             font-family: var(--font-display);
             text-transform: uppercase;
-            line-height: 0.9;
-            letter-spacing: 0.005em;
-            font-weight: 400;
-            font-size: clamp(2.6rem, 9vw, 4.5rem);
+            line-height: 1;
+            letter-spacing: 0.01em;
+            font-weight: 500;
+            font-size: clamp(2.5rem, 9vw, 4rem);
             color: var(--text-primary);
-            margin-bottom: 0.9rem;
+            margin-bottom: 1rem;
         }
 
         .header .kicker {
@@ -67,31 +67,36 @@
         .header p {
             color: var(--text-secondary);
             font-size: 1rem;
-            max-width: 500px;
+            max-width: 65ch;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .section {
-            background: var(--ink-raised);
-            border: 2px solid var(--ink-line);
-            border-radius: 4px;
-            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
-            padding: 2rem;
-            margin-bottom: 1.75rem;
+            background: transparent;
+            border: 1px solid var(--ink-line);
+            border-radius: 0;
+            box-shadow: none;
+            padding: 2.5rem 0;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--ink-line);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
         }
 
         .section-title {
             font-family: var(--font-display);
             text-transform: uppercase;
-            line-height: 0.9;
+            line-height: 1.1;
             letter-spacing: 0.01em;
-            font-weight: 400;
-            font-size: 1.6rem;
-            margin: 0 0 0.4rem;
+            font-weight: 500;
+            font-size: 1.65rem;
+            margin: 0 0 0.75rem;
             display: flex;
             align-items: center;
-            gap: 0.7rem;
+            gap: 1rem;
         }
 
         .section-subtitle {
@@ -101,19 +106,20 @@
         }
 
         .step-number {
-            width: 32px;
-            height: 32px;
-            background: var(--hazard);
-            border: 2px solid var(--ink);
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid var(--hazard);
             border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: var(--font-display);
-            font-size: 1rem;
-            line-height: 0.9;
-            color: var(--on-hazard);
+            font-size: 1.1rem;
+            line-height: 1;
+            color: var(--hazard);
             flex-shrink: 0;
+            font-weight: 500;
         }
 
         .field {
@@ -150,20 +156,21 @@
         textarea,
         select {
             width: 100%;
-            padding: 0.75rem 1rem;
-            background: var(--ink);
-            border: 2px solid var(--ink-line);
-            border-radius: 2px;
+            padding: 0.85rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--ink-line);
+            border-radius: 0;
             color: var(--text-primary);
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            transition: border-color 0.15s, box-shadow 0.15s;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.2s;
             outline: none;
         }
 
         input:focus, textarea:focus, select:focus {
-            border-color: var(--hazard);
-            box-shadow: 0 0 0 3px rgba(255, 77, 0, 0.25);
+            border-bottom-color: var(--hazard);
+            background: transparent;
         }
 
         textarea {
@@ -200,29 +207,30 @@
         .checkbox-item {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.75rem;
             min-height: 44px;
-            padding: 0.6rem 0.75rem;
-            background: var(--ink);
-            border: 2px solid var(--ink-line);
-            border-radius: 2px;
+            padding: 0.75rem 1rem;
+            background: transparent;
+            border: 1px solid var(--ink-line);
+            border-radius: 0;
             cursor: pointer;
-            transition: border-color 0.15s, background 0.15s;
+            transition: border-color 0.2s, background 0.2s;
             user-select: none;
         }
 
         .checkbox-item:hover {
             border-color: var(--hazard);
+            background: var(--ink-raised);
         }
 
         .checkbox-item:has(input[type="checkbox"]:checked) {
             border-color: var(--hazard);
-            background: var(--hazard);
+            background: var(--ink-raised);
         }
 
         .checkbox-item:focus-within {
             border-color: var(--hazard);
-            box-shadow: 0 0 0 3px rgba(255, 77, 0, 0.25);
+            box-shadow: none;
         }
 
         .checkbox-item input[type="checkbox"] {
@@ -234,31 +242,33 @@
         }
 
         .check-box {
-            width: 18px;
-            height: 18px;
-            background: var(--ink);
-            border: 2px solid var(--ink-line);
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border: 1px solid var(--ink-line);
             border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            transition: background 0.15s, border-color 0.15s;
+            transition: background 0.2s, border-color 0.2s;
         }
 
         .checkbox-item:has(input[type="checkbox"]:checked) .check-box {
-            background: var(--on-hazard);
-            border-color: var(--on-hazard);
+            background: var(--hazard);
+            border-color: var(--hazard);
         }
 
         .check-box::after {
-            content: '';
-            width: 5px;
-            height: 9px;
-            border: solid var(--hazard);
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg) translate(-1px, -1px);
+            content: '✓';
+            width: auto;
+            height: auto;
+            border: none;
+            transform: none;
             display: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--on-hazard);
         }
 
         .checkbox-item:has(input[type="checkbox"]:checked) .check-box::after {
@@ -352,9 +362,19 @@
         .submit-btn {
             width: 100%;
             justify-content: center;
-            padding: 1.1em 1.4em;
-            font-size: 1.1rem;
-            margin-top: 0.5rem;
+            padding: 1.1rem 1.75rem;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            background: var(--hazard);
+            color: var(--on-hazard);
+            border: 1px solid var(--hazard);
+            font-weight: 700;
+            letter-spacing: 0.06em;
+        }
+
+        .submit-btn:hover {
+            background: var(--hazard-deep);
+            border-color: var(--hazard-deep);
         }
 
         .submit-btn:disabled,
@@ -362,7 +382,7 @@
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
-            box-shadow: 4px 4px 0 var(--ink);
+            box-shadow: none;
         }
 
         .success-msg {
@@ -440,15 +460,15 @@
         .form-error {
             display: none;
             margin-top: 1rem;
-            padding: 0.75rem 1rem;
-            background: var(--ink-raised);
-            border: 2px solid var(--rl);
-            border-radius: 2px;
-            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
-            color: var(--text-primary);
-            font-family: var(--font-mono);
-            font-size: 0.82rem;
-            letter-spacing: 0.03em;
+            padding: 1rem;
+            background: transparent;
+            border: 1px solid var(--rl);
+            border-radius: 0;
+            box-shadow: none;
+            color: var(--rl);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
         }
 
         .form-error.visible {

@@ -101,11 +101,11 @@
         .tutorial-header h1 {
             font-family: var(--font-display);
             text-transform: uppercase;
-            line-height: 0.9;
-            letter-spacing: 0.005em;
-            font-weight: 400;
-            font-size: clamp(2.75rem, 8vw, 5rem);
-            margin-bottom: 0.75rem;
+            line-height: 1;
+            letter-spacing: 0.01em;
+            font-weight: 500;
+            font-size: clamp(2.4rem, 8vw, 4.5rem);
+            margin-bottom: 1rem;
         }
 
         .tutorial-header h1 span {
@@ -114,40 +114,43 @@
 
         .tutorial-header p {
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
-        
+
         .tutorial-content {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 3rem;
         }
-        
+
         .tutorial-step {
-            background: var(--ink-raised);
-            border: 2px solid var(--ink-line);
-            border-radius: 4px;
-            padding: 2rem;
-            box-shadow: 6px 6px 0 var(--ink);
+            background: transparent;
+            border: 1px solid var(--ink-line);
+            border-radius: 0;
+            padding: 2rem 0;
+            box-shadow: none;
+            border-bottom: 1px solid var(--ink-line);
         }
 
         .step-number {
             font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--accent-primary);
+            font-size: 0.7rem;
+            color: var(--hazard);
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
         }
 
         .step-title {
             font-family: var(--font-display);
             text-transform: uppercase;
-            line-height: 0.95;
-            letter-spacing: 0.005em;
-            font-weight: 400;
-            font-size: 1.7rem;
-            margin-bottom: 0.75rem;
+            line-height: 1.1;
+            letter-spacing: 0.01em;
+            font-weight: 500;
+            font-size: 1.65rem;
+            margin-bottom: 1rem;
         }
         
         .step-body {
@@ -199,7 +202,7 @@
         
         footer {
             padding: 3rem;
-            border-top: 2px solid var(--ink-line);
+            border-top: 1px solid var(--ink-line);
             text-align: center;
             color: var(--text-muted);
             margin-top: 4rem;

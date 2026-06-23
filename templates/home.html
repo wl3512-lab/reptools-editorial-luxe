@@ -200,7 +200,7 @@
             background: var(--ink-raised);
         }
 
-        /* Hero */
+        /* ── EDITORIAL MAGAZINE MASTHEAD ── */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -212,28 +212,31 @@
             position: relative;
             max-width: 1400px;
             margin: 0 auto;
+            border-top: 1px solid var(--hazard);
+            border-bottom: 1px solid var(--hazard);
         }
 
+        /* Kicker: small mono label above headline */
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 0.4rem 0.7rem;
-            border: 1.5px solid var(--hazard);
+            gap: 0.5rem;
+            padding: 0;
+            border: none;
             font-family: var(--font-mono);
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 700;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--hazard);
-            margin-bottom: 1.75rem;
+            margin-bottom: 1.25rem;
         }
 
         .hero-badge-sep {
-            width: 4px;
-            height: 4px;
+            width: 2px;
+            height: 2px;
             background: var(--hazard);
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
         @keyframes fadeInUp {
@@ -241,15 +244,17 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Display serif headline spans multiple "columns" */
         .hero h1 {
             font-family: var(--font-display);
             font-size: var(--step-hero);
-            font-weight: 400;
+            font-weight: 500;
             text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.005em;
+            line-height: 0.95;
+            margin-bottom: 2rem;
+            letter-spacing: 0.01em;
             animation: fadeInUp 0.6s ease 0.1s both;
+            max-width: 90%;
         }
 
         .hero h1 .line {
@@ -267,13 +272,15 @@
             font-size: 1.4rem;
         }
 
+        /* Editorial intro paragraph with drop-cap style */
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            max-width: 600px;
-            line-height: 1.55;
-            margin-bottom: 2.5rem;
+            max-width: 65ch;
+            line-height: 1.7;
+            margin-bottom: 3rem;
             animation: fadeInUp 0.6s ease 0.2s both;
+            font-feature-settings: "liga" 1;
         }
 
         .hero-cta {
@@ -378,264 +385,302 @@
         .feature-link svg { width: 16px; height: 16px; }
         .live-arrow { display: inline-flex; }
 
-        /* Features */
+        /* ── EDITORIAL SECTION STRUCTURE ── */
         .features {
             padding: 6rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         .section-header {
             text-align: left;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--ink-line);
+            margin-bottom: 4rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--ink-line);
         }
 
         .section-kicker {
+            display: block;
             margin-bottom: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--hazard);
+            font-weight: 700;
         }
 
         .section-header h2 {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3.25rem);
-            font-weight: 400;
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            font-weight: 500;
             text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.005em;
+            line-height: 1;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.01em;
         }
 
         .section-header p {
             color: var(--text-secondary);
-            font-size: 1.05rem;
-            max-width: 600px;
-            line-height: 1.6;
+            font-size: 1rem;
+            max-width: 70ch;
+            line-height: 1.65;
         }
 
+        /* Asymmetric multi-column editorial gallery */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             gap: 2rem;
         }
 
+        /* Feature cards with varied spans for editorial layout */
+        .features-grid .feature-card:nth-child(1) {
+            grid-column: span 2;
+        }
+
+        .features-grid .feature-card:nth-child(2) {
+            grid-column: span 2;
+        }
+
+        .features-grid .feature-card:nth-child(3) {
+            grid-column: span 2;
+        }
+
+        /* Editorial feature card — minimal, refined */
         .feature-card {
-            background: var(--ink-raised);
-            border: 2px solid var(--ink-line);
-            box-shadow: 6px 6px 0 rgba(0,0,0,.5);
-            padding: 2.25rem;
-            transition: transform 0.15s var(--ease), border-color 0.15s ease, box-shadow 0.15s var(--ease);
+            background: transparent;
+            border: 1px solid var(--ink-line);
+            box-shadow: none;
+            padding: 2.5rem 2rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
             text-decoration: none;
             color: inherit;
-            display: block;
+            display: flex;
+            flex-direction: column;
             position: relative;
             overflow: hidden;
         }
 
         .feature-card:hover {
-            transform: translate(-2px, -2px);
+            background: var(--ink-raised);
             border-color: var(--hazard);
-            box-shadow: 8px 8px 0 var(--hazard);
         }
 
         .feature-icon {
-            width: 48px;
-            height: 48px;
+            width: 56px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            color: var(--on-hazard);
-            background: var(--hazard);
-            border: 2px solid var(--ink);
+            margin-bottom: 1.75rem;
+            color: var(--hazard);
+            background: transparent;
+            border: 1px solid var(--hazard);
         }
 
-        .feature-icon svg { width: 22px; height: 22px; }
+        .feature-icon svg { width: 24px; height: 24px; }
 
         .feature-card h3 {
             font-family: var(--font-display);
-            font-size: 1.65rem;
-            font-weight: 400;
+            font-size: 1.5rem;
+            font-weight: 500;
             text-transform: uppercase;
-            line-height: 0.95;
+            line-height: 1.1;
             letter-spacing: 0.01em;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .feature-card p {
             color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            margin-bottom: 1.75rem;
+            font-size: 0.95rem;
         }
 
         .feature-link {
-            color: var(--accent-primary);
+            color: var(--hazard);
             font-family: var(--font-mono);
             font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            align-self: flex-start;
         }
 
         .feature-link svg {
-            transition: transform 0.3s ease;
+            transition: transform 0.25s ease;
         }
 
         .feature-card:hover .feature-link svg {
-            transform: translateX(4px);
+            transform: translateX(3px);
         }
         
-        /* Products Preview */
+        /* ── EDITORIAL GALLERY: PRODUCTS SECTION ── */
         .products-preview {
             padding: 6rem 2rem;
-            background: var(--bg-secondary);
-            border-block: 2px solid var(--ink-line);
+            background: var(--bg-primary);
+            border-top: 1px solid var(--ink-line);
         }
-        
+
         .products-preview .container {
             max-width: 1400px;
             margin: 0 auto;
         }
-        
+
+        /* Horizontal scrolling gallery — editorial style */
         .categories-scroll {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             overflow-x: auto;
             padding: 1rem 0;
-            scrollbar-width: none;
+            scrollbar-width: thin;
+            scrollbar-color: var(--ink-line) transparent;
         }
-        
+
         .categories-scroll::-webkit-scrollbar {
-            display: none;
+            height: 6px;
         }
-        
+
+        .categories-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .categories-scroll::-webkit-scrollbar-thumb {
+            background: var(--ink-line);
+        }
+
+        /* Editorial category cards — varied proportions */
         .category-card {
             flex-shrink: 0;
-            width: 200px;
-            height: 240px;
+            width: 220px;
+            height: 260px;
             background: var(--ink-raised);
-            border: 2px solid var(--ink-line);
-            box-shadow: 6px 6px 0 rgba(0,0,0,.5);
-            padding: 1.5rem;
+            border: 1px solid var(--ink-line);
+            box-shadow: none;
+            padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             text-decoration: none;
             color: inherit;
-            transition: transform 0.15s var(--ease), border-color 0.15s ease, box-shadow 0.15s var(--ease);
+            transition: border-color 0.2s ease, background 0.2s ease;
             position: relative;
             overflow: hidden;
         }
 
         .category-card:hover {
-            transform: translate(-2px, -2px);
             border-color: var(--hazard);
-            box-shadow: 8px 8px 0 var(--hazard);
+            background: var(--bg-card);
         }
 
         .category-icon {
             color: var(--hazard);
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
         }
 
-        .category-icon svg { width: 26px; height: 26px; }
+        .category-icon svg { width: 28px; height: 28px; }
 
         .category-card h4 {
             font-family: var(--font-display);
-            font-size: 1.4rem;
-            font-weight: 400;
+            font-size: 1.35rem;
+            font-weight: 500;
             text-transform: uppercase;
-            line-height: 0.95;
+            line-height: 1.1;
             letter-spacing: 0.01em;
         }
 
         .category-card span {
             color: var(--text-muted);
             font-family: var(--font-mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.06em;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
+            margin-top: 0.5rem;
         }
         
-        /* Stats */
+        /* ── EDITORIAL STATISTICS SECTION ── */
         .stats {
             padding: 6rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            gap: 3rem;
         }
-        
+
+        /* Minimal stat cards with serif numbers */
         .stat-card {
             text-align: center;
-            padding: 2.5rem 2rem;
-            background: var(--ink-raised);
-            border: 2px solid var(--ink-line);
-            box-shadow: 6px 6px 0 rgba(0,0,0,.5);
-            transition: transform 0.15s var(--ease), border-color 0.15s ease, box-shadow 0.15s var(--ease);
+            padding: 3rem 2rem;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            transition: none;
             position: relative;
         }
 
         .stat-card:hover {
-            border-color: var(--hazard);
-            transform: translate(-2px, -2px);
-            box-shadow: 8px 8px 0 var(--hazard);
+            border-color: transparent;
+            transform: none;
+            box-shadow: none;
         }
 
         .stat-number {
             font-family: var(--font-display);
-            font-size: 4.5rem;
-            font-weight: 400;
-            line-height: 0.9;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 500;
+            line-height: 1;
             color: var(--hazard);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .stat-label {
             color: var(--text-secondary);
             font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.06em;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
         }
         
-        /* CTA Section */
+        /* ── EDITORIAL CTA ── */
         .cta-section {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             text-align: center;
+            background: var(--bg-primary);
         }
-        
+
         .cta-box {
-            max-width: 800px;
+            max-width: 70ch;
             margin: 0 auto;
-            background: var(--ink-raised);
-            border: 2px solid var(--hazard);
-            box-shadow: 8px 8px 0 var(--hazard);
-            padding: 4rem;
+            background: transparent;
+            border: 1px solid var(--ink-line);
+            box-shadow: none;
+            padding: 5rem 4rem;
             position: relative;
             overflow: hidden;
         }
 
         .cta-box h2 {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 400;
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 500;
             text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 1rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
         }
 
         .cta-box p {
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            line-height: 1.7;
         }
 
         /* Header scroll state */
@@ -681,22 +726,35 @@
             letter-spacing: 0.04em;
         }
         
-        /* Responsive */
+        /* ── RESPONSIVE: EDITORIAL MAGAZINE ── */
         @media (max-width: 1024px) {
             .features-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
-            
+
+            .features-grid .feature-card:nth-child(1) {
+                grid-column: span 2;
+            }
+
+            .features-grid .feature-card:nth-child(2) {
+                grid-column: span 2;
+            }
+
+            .features-grid .feature-card:nth-child(3) {
+                grid-column: span 4;
+            }
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
             }
         }
-        
+
         @media (max-width: 768px) {
             header {
                 padding: 1rem;
             }
-            
+
             header > nav {
                 display: none;
             }
@@ -710,12 +768,18 @@
             }
 
             .hero {
-                padding: 7rem 1.25rem 4rem;
+                padding: 7rem 1.5rem 4rem;
+                border-top: none;
+                border-bottom: 1px solid var(--ink-line);
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 6vw, 3.5rem);
             }
 
             .hero-stamp {
                 top: 6rem;
-                right: 1.25rem;
+                right: 1.5rem;
                 font-size: 1rem;
             }
 
@@ -728,17 +792,25 @@
                 width: 100%;
                 justify-content: center;
             }
-            
+
             .features-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
-            
+
+            .features-grid .feature-card:nth-child(1),
+            .features-grid .feature-card:nth-child(2),
+            .features-grid .feature-card:nth-child(3) {
+                grid-column: span 1;
+            }
+
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
             }
-            
+
             .cta-box {
-                padding: 2rem;
+                padding: 3rem 1.5rem;
             }
         }
         
