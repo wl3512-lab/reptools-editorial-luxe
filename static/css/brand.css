@@ -1,0 +1,111 @@
+/* ============================================================
+   RepTools brand layer — EDITORIAL LUXE
+   Magazine luxury: warm cream paper, deep forest green + gold,
+   high-contrast serif display over a clean sans. Token names +
+   .cc-* classes unchanged so every template reskins.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root{
+  /* light paper surfaces in "ink", dark ink text in "bone" */
+  --ink:        #f7f2e7;   /* warm cream bg */
+  --ink-raised: #fffdf7;   /* raised paper card */
+  --ink-line:   #ddd3bd;   /* warm hairline */
+  --bone:       #1d2a22;   /* deep forest text */
+  --bone-dim:   #6b6452;   /* muted sepia text */
+
+  --hazard:     #1b4332;   /* PRIMARY — deep emerald */
+  --hazard-deep:#0f3023;   /* pressed / hover */
+  --acid:       #b8893f;   /* secondary — antique gold */
+  --stamp:      #9c2a2a;   /* wax-seal red */
+
+  --gl:         #2f7d4f;   /* delivered */
+  --rl:         #a8322d;   /* issue */
+  --pending:    #b07d1e;   /* in transit */
+
+  --on-hazard:  #f7f2e7;   /* cream text on emerald */
+  --on-bone:    #f7f2e7;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Archivo', system-ui, sans-serif;
+  --font-mono:    'Space Mono', ui-monospace, monospace;
+  --step-hero: clamp(2.75rem, 8.5vw, 6.5rem);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --bg-primary:var(--ink); --bg-secondary:#efe7d4; --bg-card:var(--ink-raised);
+  --bg-elevated:var(--ink-raised); --border-color:var(--ink-line);
+  --text-primary:var(--bone); --text-secondary:var(--bone-dim); --text-muted:#8a8268;
+  --accent-primary:var(--hazard); --accent-secondary:var(--acid);
+  --accent-success:var(--gl); --accent-tertiary:var(--pending);
+  --on-accent:var(--on-hazard); --cy:var(--hazard); --accent-gradient:var(--hazard);
+}
+
+.cc-wordmark{
+  display:inline-flex; align-items:baseline; gap:.4ch;
+  font-family:var(--font-display); font-weight:800; text-transform:none;
+  letter-spacing:0; line-height:1; text-decoration:none; color:var(--bone);
+}
+.cc-wordmark .cc-rep{ background:var(--hazard); color:var(--on-hazard); padding:.04em .3em; border-radius:2px; font-style:italic; }
+.cc-wordmark .cc-tools{ color:var(--bone); }
+.cc-wordmark--lg{ font-size:clamp(1.5rem,3.2vw,2.3rem); }
+.cc-wordmark__sub{
+  display:block; font-family:var(--font-mono); font-size:.58rem;
+  letter-spacing:.24em; color:var(--acid); margin-top:.5em; text-transform:uppercase;
+}
+
+.cc-display{ font-family:var(--font-display); font-weight:800; text-transform:none; line-height:1.02; letter-spacing:-.01em; }
+.cc-display--outline{ color:transparent; -webkit-text-stroke:1px var(--hazard); }
+
+.cc-btn{
+  display:inline-flex; align-items:center; gap:.6ch;
+  font-family:var(--font-body); font-weight:600; text-transform:uppercase;
+  letter-spacing:.1em; font-size:.82rem; line-height:1;
+  padding:.95em 1.6em; border:1px solid var(--hazard); border-radius:2px;
+  background:var(--hazard); color:var(--on-hazard); cursor:pointer;
+  box-shadow:none; text-decoration:none;
+  transition:background .2s var(--ease), color .2s var(--ease);
+}
+.cc-btn:hover{ background:var(--hazard-deep); }
+.cc-btn:active{ background:#0a2018; }
+.cc-btn--ghost{ background:transparent; color:var(--hazard); border-color:var(--hazard); }
+.cc-btn--ghost:hover{ background:var(--hazard); color:var(--on-hazard); }
+
+.cc-box{ background:var(--ink-raised); border:1px solid var(--ink-line); border-radius:3px; box-shadow:0 2px 14px rgba(40,30,10,.07); }
+.cc-box--hazard{ border-color:var(--hazard); box-shadow:0 6px 22px rgba(27,67,50,.16); }
+
+.cc-tag{
+  display:inline-flex; align-items:center; gap:.5ch;
+  font-family:var(--font-mono); font-size:.64rem; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase;
+  padding:.3em .6em; border:1px solid currentColor; border-radius:2px; color:var(--acid);
+}
+.cc-tag--gl{ color:var(--gl); } .cc-tag--rl{ color:var(--rl); } .cc-tag--pending{ color:var(--pending); }
+
+.cc-stamp{
+  display:inline-grid; place-items:center; text-align:center;
+  font-family:var(--font-display); font-weight:800; font-style:italic; text-transform:uppercase;
+  color:var(--stamp); border:2px solid var(--stamp); border-radius:999px;
+  padding:.55em .8em; transform:rotate(-7deg); letter-spacing:.02em; line-height:1; opacity:.92;
+}
+
+.cc-ticker{ overflow:hidden; white-space:nowrap; border-block:1px solid var(--ink-line); background:#efe7d4; padding-block:.55rem; }
+.cc-ticker__track{
+  display:inline-block; will-change:transform; animation:cc-marquee 42s linear infinite;
+  font-family:var(--font-mono); font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:var(--bone-dim);
+}
+.cc-ticker__track span{ color:var(--acid); }
+.cc-ticker:hover .cc-ticker__track{ animation-play-state:paused; }
+@keyframes cc-marquee{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+.cc-barcode{
+  height:2px; width:100%;
+  background:linear-gradient(90deg, transparent, var(--acid) 20%, var(--acid) 80%, transparent);
+  opacity:.7;
+}
+
+:where(a,button,input,select,textarea,[tabindex],[role="button"]):focus-visible{
+  outline:2px solid var(--acid); outline-offset:2px;
+}
+@media (prefers-reduced-motion: reduce){ .cc-ticker__track{ animation:none; } .cc-btn{ transition:none; } }
